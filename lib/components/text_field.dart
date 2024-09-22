@@ -6,7 +6,7 @@ class TextFieldComponent extends StatelessWidget {
   final Widget? startIcon;
   final Widget? endIcon;
   final VoidCallback? onEndIconTap;
-  final String? errorText; // Add errorText field
+  final String? errorText;
 
   const TextFieldComponent({
     super.key,
@@ -29,7 +29,7 @@ class TextFieldComponent extends StatelessWidget {
         ),
         prefixIcon: startIcon,
         hintText: placeHolder,
-        errorText: errorText, // Set errorText here
+        errorText: errorText,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Colors.grey),
