@@ -12,58 +12,35 @@ class HomeTabBarView extends StatelessWidget {
     final lockedItems = items.where((item) => item.isLocked).toList();
     final unlockedItems = items.where((item) => !item.isLocked).toList();
 
+    Widget _buildListView(List<CardItem> itemList, String emptyMessage) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: ListView(
+          children: itemList.isNotEmpty
+              ? itemList.map((truck) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2.0),
+                    child: CardInfo(
+                      title: truck.title,
+                      imageUrl: truck.imageUrl,
+                      location: truck.location,
+                      speed: truck.speed,
+                      isLocked: truck.isLocked,
+                      time: truck.time,
+                    ),
+                  );
+                }).toList()
+              : [Center(child: Text(emptyMessage))],
+        ),
+      );
+    }
+
     return Expanded(
       child: TabBarView(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: ListView(
-              children: items.map((truck) {
-                return CardInfo(
-                  title: truck.title,
-                  imageUrl: truck.imageUrl,
-                  location: truck.location,
-                  speed: truck.speed,
-                  isLocked: truck.isLocked,
-                  time: truck.time,
-                );
-              }).toList(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: ListView(
-              children: lockedItems.isNotEmpty
-                  ? lockedItems.map((truck) {
-                      return CardInfo(
-                        title: truck.title,
-                        imageUrl: truck.imageUrl,
-                        location: truck.location,
-                        speed: truck.speed,
-                        isLocked: truck.isLocked,
-                        time: truck.time,
-                      );
-                    }).toList()
-                  : [const Center(child: Text('No Locked Items'))],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: ListView(
-              children: unlockedItems.isNotEmpty
-                  ? unlockedItems.map((truck) {
-                      return CardInfo(
-                        title: truck.title,
-                        imageUrl: truck.imageUrl,
-                        location: truck.location,
-                        speed: truck.speed,
-                        isLocked: truck.isLocked,
-                        time: truck.time,
-                      );
-                    }).toList()
-                  : [const Center(child: Text('No Unlocked Items'))],
-            ),
-          ),
+          _buildListView(items, 'No Items'),
+          _buildListView(lockedItems, 'No Locked Items'),
+          _buildListView(unlockedItems, 'No Unlocked Items'),
         ],
       ),
     );

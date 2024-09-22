@@ -7,6 +7,8 @@ class TextFieldComponent extends StatelessWidget {
   final Widget? endIcon;
   final VoidCallback? onEndIconTap;
   final String? errorText;
+  final bool isPassword;
+  final bool isVisible; // New parameter
 
   const TextFieldComponent({
     super.key,
@@ -16,43 +18,67 @@ class TextFieldComponent extends StatelessWidget {
     this.endIcon,
     this.onEndIconTap,
     this.errorText,
+    this.isPassword = false,
+    this.isVisible = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        suffixIcon: GestureDetector(
-          onTap: onEndIconTap,
-          child: endIcon,
+    return Column(
+      crossAxisAlignment:
+          CrossAxisAlignment.start, // Aligns the text field and error text
+      mainAxisSize: MainAxisSize.min, // Keeps the column size minimal
+      children: [
+        Container(
+          height: 44,
+          child: TextField(
+            onChanged: onChanged,
+            obscureText:
+                isPassword && !isVisible, // Correct logic for obscureText
+            decoration: InputDecoration(
+              suffixIcon: endIcon != null
+                  ? GestureDetector(
+                      onTap: onEndIconTap,
+                      child: endIcon,
+                    )
+                  : null,
+              prefixIcon: startIcon,
+              hintText: placeHolder,
+              errorText: null, // Prevents TextField from shrinking
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(color: Colors.grey),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(color: Colors.black),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(color: Colors.grey),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(color: Colors.red),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(color: Colors.red),
+              ),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+            ),
+          ),
         ),
-        prefixIcon: startIcon,
-        hintText: placeHolder,
-        errorText: errorText,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.grey),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.black),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.grey),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-      ),
+        if (errorText != null) //
+          Padding(
+            padding: const EdgeInsets.only(top: 4.0),
+            child: Text(
+              errorText!,
+              style: TextStyle(color: Colors.red, fontSize: 12),
+            ),
+          ),
+      ],
     );
   }
 }

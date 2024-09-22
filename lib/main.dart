@@ -14,7 +14,6 @@ class Main extends StatelessWidget {
     return MaterialApp(
         title: 'Truck app',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
         debugShowCheckedModeBanner: false,

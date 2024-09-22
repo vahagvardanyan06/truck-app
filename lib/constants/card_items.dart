@@ -2,7 +2,7 @@ import 'package:truck_app/types/card_item.dart';
 
 final List<CardItem> card_items = [
   CardItem(
-    title: '21FD128 ALEX',
+    title: '21FD128 EDGAR',
     imageUrl:
         'https://img.freepik.com/premium-photo/image-realistictransport-truck_1142389-19541.jpg',
     location: 'M-2 3.50 km from Agarak',
@@ -47,7 +47,7 @@ final List<CardItem> card_items = [
     time: '4hr10min',
   ),
   CardItem(
-    title: '21FD128 ALEX',
+    title: '21FD128 HAKOB',
     imageUrl:
         'https://img.freepik.com/premium-photo/image-realistictransport-truck_1142389-19498.jpg',
     location: 'M-2 3.50 km from Agarak',
@@ -65,7 +65,7 @@ final List<CardItem> card_items = [
     time: '4hr10min',
   ),
   CardItem(
-    title: '21FD128 ALEX',
+    title: '21FD128 Harut',
     imageUrl:
         'https://img.freepik.com/premium-photo/image-realistictransport-truck_1142389-19541.jpg',
     location: 'M-2 3.50 km from Agarak',
@@ -74,7 +74,7 @@ final List<CardItem> card_items = [
     time: '4hr10min',
   ),
   CardItem(
-    title: '21FD128 ALEX',
+    title: '21FD128 EDUARD',
     imageUrl:
         'https://img.freepik.com/premium-photo/image-realistictransport-truck_1142389-19541.jpg',
     location: 'M-2 3.50 km from Agarak',
@@ -83,7 +83,7 @@ final List<CardItem> card_items = [
     time: '4hr10min',
   ),
   CardItem(
-    title: '21FD128 ALEX',
+    title: '21FD128 ARMEN',
     imageUrl:
         'https://img.freepik.com/free-psd/psd-box-truck-template_1409-3681.jpg',
     location: 'M-2 3.50 km from Agarak',
