@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:truck_app/components/nav_bar.dart';
+import 'package:truck_app/constants/card_items.dart';
 import 'package:truck_app/pages/home/body.dart';
 import 'package:truck_app/pages/home/appbar.dart';
+import 'package:truck_app/store/controllers/card_items.dart';
+import 'package:get/get.dart';
+import 'package:truck_app/store/controllers/general.dart';
 
 class Home extends HookWidget {
   const Home({super.key});
@@ -12,9 +16,16 @@ class Home extends HookWidget {
     final searchValue = useState('');
     final selectedIndex = useState(0);
 
+    useEffect(() {
+      // store init here
+      Get.put(GeneralController());
+      // will be fetch for items
+      Get.find<CardItemsStore>().addItems(card_items);
+      return null;
+    }, []);
+
     final onSearchChanged = useCallback((val) {
       searchValue.value = val;
-      print(val);
     }, [searchValue]);
 
     void onNavDestinationSelected(int index) {
@@ -22,7 +33,9 @@ class Home extends HookWidget {
     }
 
     final List<Widget> tabWidgets = [
-      Body(),
+      Body(
+        searchValue: searchValue.value,
+      ),
       Center(child: Text('Map Tab Content')),
       Center(child: Text('Graphics Tab Content')),
       Center(child: Text('Profile Tab Content')),

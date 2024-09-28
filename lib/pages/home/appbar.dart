@@ -28,7 +28,9 @@ class Appbar extends HookWidget {
                 onChanged: onSearchChanged,
                 placeHolder: 'Search',
                 startIcon: const Icon(Icons.search),
-                endIcon: const Icon(Icons.cancel_outlined),
+                endIcon: searchValue.value.isNotEmpty
+                    ? const Icon(Icons.cancel_outlined)
+                    : null,
                 onEndIconTap: onCancelTap,
               ),
             ),

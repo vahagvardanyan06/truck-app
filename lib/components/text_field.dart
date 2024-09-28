@@ -8,7 +8,7 @@ class TextFieldComponent extends StatelessWidget {
   final VoidCallback? onEndIconTap;
   final String? errorText;
   final bool isPassword;
-  final bool isVisible; // New parameter
+  final bool isVisible;
 
   const TextFieldComponent({
     super.key,
@@ -25,16 +25,14 @@ class TextFieldComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment:
-          CrossAxisAlignment.start, // Aligns the text field and error text
-      mainAxisSize: MainAxisSize.min, // Keeps the column size minimal
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           height: 44,
           child: TextField(
             onChanged: onChanged,
-            obscureText:
-                isPassword && !isVisible, // Correct logic for obscureText
+            obscureText: isPassword && !isVisible,
             decoration: InputDecoration(
               suffixIcon: endIcon != null
                   ? GestureDetector(
@@ -44,7 +42,7 @@ class TextFieldComponent extends StatelessWidget {
                   : null,
               prefixIcon: startIcon,
               hintText: placeHolder,
-              errorText: null, // Prevents TextField from shrinking
+              errorText: null,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(color: Colors.grey),
@@ -70,7 +68,7 @@ class TextFieldComponent extends StatelessWidget {
             ),
           ),
         ),
-        if (errorText != null) //
+        if (errorText != null)
           Padding(
             padding: const EdgeInsets.only(top: 4.0),
             child: Text(

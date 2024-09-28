@@ -34,7 +34,7 @@ class Button extends StatelessWidget {
             ? Text(
                 text,
                 style: TextStyle(
-                  color: Color(0x8C7C7C7C), // Indicate disabled state
+                  color: Color(0x8C7C7C7C),
                 ),
               )
             : isLoading

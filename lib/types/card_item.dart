@@ -5,6 +5,7 @@ class CardItem {
   final String speed;
   final bool isLocked;
   final String time;
+  final String id;
 
   CardItem({
     required this.title,
@@ -13,5 +14,6 @@ class CardItem {
     required this.speed,
     required this.isLocked,
     required this.time,
+    required this.id,
   });
 }

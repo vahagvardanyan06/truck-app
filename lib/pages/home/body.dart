@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:truck_app/constants/card_items.dart';
+import 'package:get/get.dart';
+import 'package:truck_app/store/controllers/card_items.dart';
 import 'package:truck_app/pages/home/components/tab_bar.dart';
 import 'package:truck_app/pages/home/components/tab_bar_view.dart';
+import 'package:truck_app/utils/filter_card_items.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  final String searchValue;
+  const Body({super.key, required this.searchValue});
 
   @override
   _BodyState createState() => _BodyState();
@@ -13,6 +16,12 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    final cardItems = Get.find<CardItemsStore>().cardItems;
+
+    final filteredItems = widget.searchValue.isEmpty
+        ? cardItems
+        : filterCardItems(cardItems, widget.searchValue);
+
     return DefaultTabController(
       length: 3,
       child: Builder(
@@ -23,7 +32,7 @@ class _BodyState extends State<Body> {
               children: [
                 const HomeTabBar(),
                 HomeTabBarView(
-                  items: card_items,
+                  items: filteredItems,
                 ),
               ],
             ),
