@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:truck_app/store/controllers/card_items.dart';
-import 'package:truck_app/pages/home/components/tab_bar.dart';
-import 'package:truck_app/pages/home/components/tab_bar_view.dart';
+import 'package:truck_app/pages/navigations/home/components/tab_bar.dart';
+import 'package:truck_app/pages/navigations/home/components/tab_bar_view.dart';
 import 'package:truck_app/utils/filter_card_items.dart';
 
 class Body extends StatefulWidget {

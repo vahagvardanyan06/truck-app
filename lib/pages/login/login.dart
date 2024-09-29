@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:truck_app/components/button.dart';
 import 'package:truck_app/components/text_field.dart';
 import 'package:truck_app/constants/assets.dart';
-import 'package:truck_app/pages/home/home.dart';
+import 'package:truck_app/pages/general_page.dart';
 
 class Login extends HookWidget {
   const Login({super.key});
@@ -49,7 +49,7 @@ class Login extends HookWidget {
         await Future.delayed(const Duration(seconds: 2));
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => Home()),
+          MaterialPageRoute(builder: (context) => const GeneralPage()),
         );
         isButtonLoading.value = false;
       } else {

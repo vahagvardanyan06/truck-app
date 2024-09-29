@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
+import 'package:truck_app/components/nav_bar.dart';
 import 'package:truck_app/store/controllers/product_detail.dart';
 
 class ProductDetails extends HookWidget {
@@ -19,6 +20,7 @@ class ProductDetails extends HookWidget {
       child: SafeArea(
           child: Scaffold(
         body: Center(child: Text(productId)),
+        bottomNavigationBar: NavBar(),
       )),
     );
   }
