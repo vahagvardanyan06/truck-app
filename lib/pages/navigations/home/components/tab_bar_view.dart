@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:truck_app/components/card_info.dart';
 import 'package:get/get.dart';
-import 'package:truck_app/pages/productDetails/product_details.dart';
+import 'package:truck_app/constants/routes.dart';
 import 'package:truck_app/store/controllers/product_detail.dart';
 import 'package:truck_app/types/card_item.dart';
 
@@ -17,10 +17,7 @@ class HomeTabBarView extends StatelessWidget {
 
     onItemTap(String id) {
       Get.find<ProductDetailStore>().setProductId(id);
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const ProductDetails()),
-      );
+      Navigator.pushNamed(context, Routes.productDetail);
     }
 
     Widget _buildListView(List<CardItem> itemList, String emptyMessage) {

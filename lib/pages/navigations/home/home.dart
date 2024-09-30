@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:truck_app/components/nav_bar.dart';
 import 'package:truck_app/constants/card_items.dart';
-import 'package:truck_app/pages/navigations/home/body.dart';
-import 'package:truck_app/pages/navigations/home/appbar.dart';
+import 'package:truck_app/constants/routes.dart';
+import 'package:truck_app/pages/navigations/home/content.dart';
+import 'package:truck_app/pages/productDetails/product_details.dart';
 import 'package:truck_app/store/controllers/card_items.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +15,7 @@ class Home extends HookWidget {
     final searchValue = useState('');
 
     useEffect(() {
-      // will be fetch for items
+      // Fetch items
       Get.find<CardItemsStore>().addItems(card_items);
       return null;
     }, []);
@@ -24,22 +24,21 @@ class Home extends HookWidget {
       searchValue.value = val;
     }, [searchValue]);
 
-    return Container(
-      color: Colors.white,
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(56.0),
-            child: Appbar(
-              onSearchChanged: onSearchChanged,
-              searchValue: searchValue,
-            ),
+    return Navigator(
+      initialRoute: Routes.home,
+      onGenerateRoute: (RouteSettings settings) {
+        Widget page = settings.name == Routes.productDetail
+            ? const ProductDetails()
+            : HomeContent(
+                searchValue: searchValue, onSearchChanged: onSearchChanged);
+
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => Scaffold(
+            body: page,
           ),
-          body: Body(searchValue: searchValue.value),
-          bottomNavigationBar: const NavBar(),
-        ),
-      ),
+        );
+      },
     );
   }
 }

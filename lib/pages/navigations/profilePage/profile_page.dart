@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:truck_app/components/nav_bar.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -14,7 +13,6 @@ class ProfilePage extends StatelessWidget {
         body: Center(
           child: Text('profile page'),
         ),
-        bottomNavigationBar: NavBar(),
       )),
     );
   }
