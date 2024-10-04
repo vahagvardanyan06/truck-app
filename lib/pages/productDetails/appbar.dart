@@ -11,6 +11,10 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
       print('settings presssed');
     }
 
+    void onCalendarPressed() {
+      print('calendar pressed');
+    }
+
     return AppBar(
       backgroundColor: Colors.white,
       leading: IconButton(
@@ -19,6 +23,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
           Navigator.of(context).pop();
         },
       ),
+      centerTitle: true,
       title: Text(
         productTitle,
         style: const TextStyle(
@@ -26,14 +31,19 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.settings),
+          onPressed: onCalendarPressed,
+          icon: const Icon(Icons.calendar_month_outlined),
+          visualDensity: VisualDensity.compact,
+        ),
+        IconButton(
           onPressed: onSettingsPressed,
+          icon: const Icon(Icons.settings),
+          visualDensity: VisualDensity.compact,
         ),
       ],
     );
   }
 
-  // This is required to specify the size of the custom AppBar
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

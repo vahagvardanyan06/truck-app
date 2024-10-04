@@ -10,6 +10,11 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: false,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '2',
@@ -20,6 +25,11 @@ final List<CardItem> card_items = [
     speed: '75km/h',
     isLocked: true,
     time: '7hr41min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '3',
@@ -30,6 +40,11 @@ final List<CardItem> card_items = [
     speed: '80km/h',
     isLocked: false,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '4',
@@ -40,6 +55,11 @@ final List<CardItem> card_items = [
     speed: '60km/h',
     isLocked: false,
     time: '5hr30min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '5',
@@ -50,6 +70,11 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: true,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '6',
@@ -60,6 +85,11 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: true,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '7',
@@ -70,6 +100,11 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: false,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '8',
@@ -80,6 +115,11 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: true,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '9',
@@ -90,6 +130,11 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: true,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
   CardItem(
     id: '10',
@@ -100,5 +145,10 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: true,
     time: '4hr10min',
+    driverInfo: DriverInfoType(
+        fullName: 'Poxos Poxosyan',
+        phoneNumber: '+37477686820',
+        profileImageUrl:
+            'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'),
   ),
 ];
