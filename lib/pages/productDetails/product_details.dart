@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
+import 'package:truck_app/pages/productDetails/appbar.dart';
+import 'package:truck_app/pages/productDetails/body.dart';
 import 'package:truck_app/store/controllers/product_detail.dart';
 
 class ProductDetails extends HookWidget {
@@ -8,7 +10,7 @@ class ProductDetails extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productId = Get.find<ProductDetailStore>().productId.value;
+    final product = Get.find<ProductDetailStore>().getProduct();
 
     useEffect(() {
       return null;
@@ -18,17 +20,12 @@ class ProductDetails extends HookWidget {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            title: const Text('Product Details'),
+          appBar: Appbar(
+            productTitle: product.title,
           ),
-          body: Center(child: Text(productId)),
+          body: Body(
+            product: product,
+          ),
         ),
       ),
     );
