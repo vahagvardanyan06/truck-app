@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:truck_app/pages/productDetails/driver_info.dart';
-import 'package:truck_app/pages/productDetails/features.dart';
-import 'package:truck_app/pages/productDetails/location_button.dart';
-import 'package:truck_app/pages/productDetails/product_image.dart';
+import 'package:truck_app/pages/productDetails/components/driver_info.dart';
+import 'package:truck_app/pages/productDetails/components/features.dart';
+import 'package:truck_app/pages/productDetails/components/location_button.dart';
+import 'package:truck_app/pages/productDetails/components/product_image.dart';
 import 'package:truck_app/store/controllers/pages.dart';
 import 'package:truck_app/types/card_item.dart';
 import 'package:truck_app/types/pages.dart';
@@ -44,7 +44,6 @@ class Body extends StatelessWidget {
               isLocked: product.isLocked,
               oil: product.oil,
             ),
-            Divider(),
           ],
         ),
       ),

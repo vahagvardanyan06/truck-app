@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:truck_app/constants/assets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DriverInfo extends StatelessWidget {
