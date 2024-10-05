@@ -10,6 +10,7 @@ final List<CardItem> card_items = [
     speed: '180km/h',
     isLocked: false,
     time: '4hr10min',
+    oil: '90L',
     driverInfo: DriverInfoType(
         fullName: 'Poxos Poxosyan',
         phoneNumber: '+37477686820',
@@ -24,6 +25,7 @@ final List<CardItem> card_items = [
     location: 'M-2 1.90 km from Agarak',
     speed: '75km/h',
     isLocked: true,
+    oil: '120L',
     time: '7hr41min',
     driverInfo: DriverInfoType(
         fullName: 'Poxos Poxosyan',
@@ -69,6 +71,7 @@ final List<CardItem> card_items = [
     location: 'M-2 3.50 km from Agarak',
     speed: '180km/h',
     isLocked: true,
+    oil: '120L',
     time: '4hr10min',
     driverInfo: DriverInfoType(
         fullName: 'Poxos Poxosyan',
@@ -99,6 +102,7 @@ final List<CardItem> card_items = [
     location: 'M-2 3.50 km from Agarak',
     speed: '180km/h',
     isLocked: false,
+    oil: '10L',
     time: '4hr10min',
     driverInfo: DriverInfoType(
         fullName: 'Poxos Poxosyan',

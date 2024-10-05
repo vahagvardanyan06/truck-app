@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:truck_app/pages/productDetails/driver_info.dart';
+import 'package:truck_app/pages/productDetails/features.dart';
 import 'package:truck_app/pages/productDetails/location_button.dart';
 import 'package:truck_app/pages/productDetails/product_image.dart';
 import 'package:truck_app/store/controllers/pages.dart';
@@ -9,6 +10,7 @@ import 'package:truck_app/types/pages.dart';
 
 class Body extends StatelessWidget {
   final CardItem product;
+
   const Body({super.key, required this.product});
 
   @override
@@ -35,7 +37,14 @@ class Body extends StatelessWidget {
               fullName: product.driverInfo.fullName,
               profileImageUrl: product.driverInfo.profileImageUrl,
               phoneNumber: product.driverInfo.phoneNumber,
-            )
+            ),
+            Features(
+              time: product.time,
+              speed: product.speed, // Ensure correct speed assignment
+              isLocked: product.isLocked,
+              oil: product.oil,
+            ),
+            Divider(),
           ],
         ),
       ),

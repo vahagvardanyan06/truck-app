@@ -62,6 +62,7 @@ flutter:
     - assets/svgs/home.svg
     - assets/svgs/graphic.svg
     - assets/svgs/logo.svg
+    - assets/images/default_driver.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:truck_app/constants/assets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DriverInfo extends StatelessWidget {
@@ -50,12 +51,13 @@ class DriverInfo extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
+                backgroundColor: const Color.fromARGB(255, 229, 225, 225),
                 radius: 30,
                 backgroundImage: profileImageUrl != null
                     ? NetworkImage(profileImageUrl!)
                     : null,
                 child: profileImageUrl == null
-                    ? const Icon(Icons.person, size: 30)
+                    ? const Icon(Icons.person, size: 40)
                     : null,
               ),
               const SizedBox(width: 16),

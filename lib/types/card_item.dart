@@ -15,6 +15,7 @@ class CardItem {
   final bool isLocked;
   final String time;
   final String id;
+  final String? oil;
   final DriverInfoType driverInfo;
 
   CardItem(
@@ -25,5 +26,6 @@ class CardItem {
       required this.isLocked,
       required this.time,
       required this.id,
-      required this.driverInfo});
+      required this.driverInfo,
+      this.oil});
 }
