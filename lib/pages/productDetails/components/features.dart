@@ -32,7 +32,7 @@ class Features extends StatelessWidget {
             children: [
               const SizedBox(height: 12),
               const Text(
-                'Features ',
+                'Features',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
