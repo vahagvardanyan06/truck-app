@@ -19,6 +19,7 @@ class HomeTabBar extends StatelessWidget {
         ),
       ),
       child: const TabBar(
+        padding: EdgeInsets.all(2),
         dividerColor: Colors.transparent,
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
