@@ -26,7 +26,12 @@ class HomeContent extends StatelessWidget {
               searchValue: searchValue,
             ),
           ),
-          body: Body(searchValue: searchValue.value),
+          body: ValueListenableBuilder<String>(
+            valueListenable: searchValue,
+            builder: (context, value, child) {
+              return Body(searchValue: value);
+            },
+          ),
         ),
       ),
     );

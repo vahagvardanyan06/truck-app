@@ -31,7 +31,11 @@ class Body extends StatelessWidget {
               location: product.location,
             ),
             ProductImage(imageUrl: product.imageUrl),
-            DriverInfo(fullName: product.driverInfo.fullName)
+            DriverInfo(
+              fullName: product.driverInfo.fullName,
+              profileImageUrl: product.driverInfo.profileImageUrl,
+              phoneNumber: product.driverInfo.phoneNumber,
+            )
           ],
         ),
       ),
