@@ -40,7 +40,7 @@ class Body extends StatelessWidget {
             ),
             Features(
               time: product.time,
-              speed: product.speed, // Ensure correct speed assignment
+              speed: product.speed,
               isLocked: product.isLocked,
               oil: product.oil,
             ),

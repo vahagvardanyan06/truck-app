@@ -17,35 +17,45 @@ class Features extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8.0), // You can adjust this if needed
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start, // Align items to the left
-          children: [
-            _FeatureItem(
-              icon: Icons.access_time,
-              value: time,
+      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Vehicle Features',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: Colors.black87,
             ),
-            const SizedBox(width: 16),
+          ),
+          const SizedBox(height: 24),
+          _FeatureItem(
+            icon: Icons.access_time,
+            label: 'Time',
+            value: time,
+          ),
+          const SizedBox(height: 16),
+          _FeatureItem(
+            icon: Icons.speed,
+            label: 'Speed',
+            value: speed,
+          ),
+          const SizedBox(height: 16),
+          _FeatureItem(
+            icon: isLocked ? Icons.lock : Icons.lock_open,
+            label: 'Lock Status',
+            value: isLocked ? 'Locked' : 'Unlocked',
+            iconColor: isLocked ? Colors.green : Colors.red,
+          ),
+          if (oil != null) const SizedBox(height: 16),
+          if (oil != null)
             _FeatureItem(
-              icon: Icons.speed,
-              value: speed,
+              icon: Icons.local_gas_station,
+              label: 'Oil Level',
+              value: oil!,
             ),
-            const SizedBox(width: 16),
-            _FeatureItem(
-              icon: isLocked ? Icons.lock : Icons.lock_open,
-              value: isLocked ? 'Locked' : 'Unlocked',
-              iconColor: isLocked ? Colors.green : Colors.red,
-            ),
-            const SizedBox(width: 16),
-            if (oil != null)
-              _FeatureItem(
-                icon: Icons.local_gas_station,
-                value: oil!,
-              ),
-          ],
-        ),
+        ],
       ),
     );
   }
@@ -53,16 +63,14 @@ class Features extends StatelessWidget {
 
 class _FeatureItem extends StatelessWidget {
   final IconData icon;
+  final String label;
   final String value;
-  final Color? iconColor; // Added this to customize icon color
-
-  // Set fixed width and height for the feature item
-  static const double itemWidth = 85; // Set a fixed width
-  static const double itemHeight = 85; // Set a fixed height
+  final Color? iconColor;
 
   const _FeatureItem({
     Key? key,
     required this.icon,
+    required this.label,
     required this.value,
     this.iconColor,
   }) : super(key: key);
@@ -70,25 +78,43 @@ class _FeatureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: itemWidth, // Fixed width
-      height: itemHeight, // Fixed height
+      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            blurRadius: 8.0,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
-      child: Column(
-        mainAxisAlignment:
-            MainAxisAlignment.center, // Center content vertically
+      child: Row(
         children: [
-          Icon(icon, size: 24.0, color: iconColor), // Display icon
-          const SizedBox(height: 4), // Space between icon and value text
+          Row(
+            children: [
+              Icon(icon, size: 20.0, color: iconColor ?? Colors.black54),
+              const SizedBox(width: 12),
+              Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+          const Spacer(),
           Text(
             value,
-            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center, // Center text
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Colors.black54,
+            ),
           ),
-          const Divider(height: 4, thickness: 1), // Divider below the item
         ],
       ),
     );
