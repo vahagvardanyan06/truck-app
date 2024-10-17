@@ -5,6 +5,7 @@ import 'package:truck_app/components/button.dart';
 import 'package:truck_app/components/text_field.dart';
 import 'package:truck_app/constants/assets.dart';
 import 'package:truck_app/pages/general_page.dart';
+import 'package:truck_app/utils/login_validate.dart';
 
 class Login extends HookWidget {
   const Login({super.key});
@@ -18,28 +19,16 @@ class Login extends HookWidget {
     final emailError = useState<String?>(null);
     final passwordError = useState<String?>(null);
 
-    String? validateEmail(String email) {
-      const emailPattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
-      final regex = RegExp(emailPattern);
-      return regex.hasMatch(email) ? null : 'Invalid email format';
-    }
-
-    String? validatePassword(String password) {
-      const passwordPattern = r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$';
-      final regex = RegExp(passwordPattern);
-      return regex.hasMatch(password)
-          ? null
-          : 'Password must be at least 8 characters long and contain at least one letter and one number';
-    }
+    LoginValidate loginValidator = LoginValidate();
 
     void onEmailChanged(String val) {
       email.value = val;
-      emailError.value = validateEmail(email.value);
+      emailError.value = loginValidator.validateEmail(email.value);
     }
 
     void onPasswordChanged(String val) {
       password.value = val;
-      passwordError.value = validatePassword(password.value);
+      passwordError.value = loginValidator.validatePassword(password.value);
     }
 
     void onPressed() async {
